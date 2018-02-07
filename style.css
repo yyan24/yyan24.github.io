@@ -1,0 +1,159 @@
+body{
+    text-align:center;
+    margin:0 auto;
+    font-family:"Segoe UI","Segoe UI Web","Segoe UI Symbol","Helvetica Neue","BBAlpha Sans","S60 Sans",Arial,sans-serif;  /*换字体*/
+}
+.maincontent{
+    margin:0 auto;
+    width:100%;
+}
+.topcontent{
+    width:100%
+}
+.headcontent{
+    background:url(yytr_cl.jpg) no-repeat center top; /*换背景图片*/
+    padding-top:140px;
+    text-align:center;
+    background-attachment: relative;
+    background-position: center top;
+    min-height: 300px;
+    width: 100%;
+    
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.titlecontainer{
+    width: 960px; 
+    height: 60%; 
+    overflow: auto; 
+    margin: auto; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    bottom: 0; 
+    right: 0; 
+}
+.content{
+    width: 100%;
+    height: 200px;
+    background: rgb(84, 130, 53);
+    position: relative
+}
+.container{
+    width: 1150px; 
+    height: 60%; 
+    overflow: auto; 
+    margin: auto; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    bottom: 0; 
+    right: 0;
+}
+.boldtd{
+    font-size: 30px;
+    margin: 0;
+    padding: 20px 0;
+    line-height: 95px;
+    font-weight: 400;
+    width:20%;
+    color:white
+}
+.detail{
+    font-size: 16px;
+    margin: 0;
+    line-height: 2;
+    font-weight: 400;
+    width:80%;
+    text-align: justify;
+    color:white
+}
+.detail a {
+	color:rgb(84, 130, 53);
+	text-decoration:none;
+}
+.curriculumtable{
+    width: 1150px; 
+    height: 100px; 
+    margin:auto
+}
+.vitae{
+    width:30%;
+    text-align:left;
+    font-size:30px;
+    color:rgb(84, 130, 53);
+}
+.downloadpdf
+{
+    width:70%;
+    text-align:right;
+    font-size:16px;
+    color:rgb(84, 130, 53);
+}
+.downloadhref
+{
+    background:url(icon/im-download.png) no-repeat;
+    display:block;
+    width:137px;
+    height:46px;
+}
+.containerdesc{
+    padding-top: 10px;
+    width:100%
+}
+.descrow{
+    width: 1150px;
+    margin:auto
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px dashed rgb(84, 130, 53);
+    margin: 0 auto;
+    padding: 0;
+    width: 1150px; 
+}
+.boldtext{
+    text-align:left;
+    font-size:20px;
+    color:rgb(84, 130, 53);
+}
+.desccontent{
+    margin: 0 auto;
+    width:95%;
+    text-align:left;
+    padding-bottom: 8px
+}
+.linkpaper{
+    width: 100px;
+    height: 20px;
+    border: 1px solid rgb(191, 191, 191);
+    background: rgb(84, 130, 53);
+    margin: 0 auto;
+    font-weight: bold;
+    font-size:10px;
+    text-align:center;
+    line-height: 20px;
+}
+.linkpaper a{
+    text-decoration:none;
+    color: white;
+}
+.side-bar{
+    width: 66px;
+    position: fixed;
+    top: 150px;      /*调整悬浮框的距离顶端的距离，可以换为 bottom 表示距离底端距离*/
+    left: 10px;    /*调整悬浮框的距离左边的距离，可以换为 right 表示距离右端距离*/
+    font-size: 0;
+    line-height: 0;
+    z-index: 100;
+    background: transparent;
+}
