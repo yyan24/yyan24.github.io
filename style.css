@@ -16,7 +16,7 @@ body{
     text-align:center;
     background-attachment: relative;
     background-position: center top;
-    min-height: 300px;
+    min-height: 576px;
     width: 100%;
     
     -webkit-background-size: 100%;
@@ -31,7 +31,7 @@ body{
 }
 .titlecontainer{
     width: 960px; 
-    height: 60%; 
+    height: 96%; 
     overflow: auto; 
     margin: auto; 
     position: absolute; 
