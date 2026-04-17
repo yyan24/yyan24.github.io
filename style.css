@@ -25,7 +25,7 @@ body {
     background-color: #e9ecef;
 }
 
-/* 唯一带有绿色的部分：链接 */
+/* 唯一带有绿色的部分：明确的文字链接 */
 a {
     color: var(--primary-color);
     text-decoration: none;
@@ -35,9 +35,9 @@ a:hover {
     text-decoration: underline;
 }
 
-/* 解决吸顶导航条挡住标题的问题：所有带锚点的元素向下偏移 */
+/* 解决吸顶导航条挡住标题的问题 */
 section, footer {
-    scroll-margin-top: 60px; 
+    scroll-margin-top: 80px; /* 增加了一点偏移量，让标题上方留一点呼吸空间 */
 }
 
 /* 主容器 */
@@ -83,7 +83,7 @@ section, footer {
     color: rgba(255, 255, 255, 0.85);
     font-size: 15px;
     font-weight: normal;
-    margin-top: 10px; /* 调整得紧凑一点，防止偏离底部边距 */
+    margin-top: 10px; /* 调紧凑，确保下方边距和左边视觉上相等 */
     letter-spacing: 0.5px;
 }
 
@@ -102,7 +102,7 @@ section, footer {
 }
 
 .top-nav a {
-    color: #444; /* 导航文字默认深灰，不是绿色 */
+    color: #444; /* 导航默认深灰 */
     font-weight: bold;
     font-size: 15px;
     text-transform: uppercase;
@@ -113,7 +113,7 @@ section, footer {
 }
 
 /* --- 通用区块布局 --- */
-.section {
+.section, .contact-section, .links-section {
     padding: 50px 40px; 
 }
 
@@ -132,32 +132,32 @@ section, footer {
     font-size: 17px;
     font-weight: bold;
     margin-bottom: 20px;
-    color: #111; /* 副标题不再用绿色，保持学术庄重 */
+    color: #111; 
 }
 
 .text-justify { text-align: justify; }
 
 /* --- 主题色切换 (绿底) --- */
-.theme-bg {
+.theme-bg, .links-section {
     background-color: var(--primary-color);
     color: white;
 }
-.theme-bg .section-title {
+.theme-bg .section-title, .links-section .section-title {
     color: white; 
     border-bottom-color: white;
 }
 .theme-bg .sub-title {
     color: white;
 }
-/* 绿底区块内的链接必须是白色，防止绿底叠绿字看不清 */
-.theme-bg a {
+/* 绿底区块内的链接必须是白色，包含 || 符号也是浅白 */
+.theme-bg a, .links-section a {
     color: white; 
     font-weight: bold;
 }
-.theme-bg a:hover {
+.theme-bg a:hover, .links-section a:hover {
     text-decoration: underline;
 }
-.theme-bg .divider {
+.theme-bg .divider, .links-section .divider {
     color: rgba(255, 255, 255, 0.5); 
 }
 .theme-bg .block-date {
@@ -221,36 +221,19 @@ section, footer {
     background: #f8f9fa;
     padding: 15px;
     border-left: 4px solid var(--primary-color);
-    color: #333; /* 仅链接部分会变绿 */
+    color: #333; 
 }
 .divider { color: #ccc; }
 .download-icon { width: 20px; vertical-align: middle; }
 
-/* --- 底部：9. CONTACT (白) & 10. LINKS (绿) --- */
+/* --- 底部特定排版 --- */
 .contact-section {
     background-color: var(--bg-color); /* 白底 */
     color: var(--text-color);
-    padding: 50px 40px;
 }
 .contact-section .section-title { 
     color: #111; 
     border-bottom-color: var(--primary-color); 
-}
-
-.links-section {
-    background-color: var(--primary-color); /* 绿底 */
-    color: white;
-    padding: 50px 40px;
-}
-.links-section .section-title { 
-    color: white; 
-    border-bottom-color: white; 
-}
-.links-section a {
-    color: white; 
-}
-.links-section a:hover {
-    text-decoration: underline;
 }
 
 .vertical-contact-item {
@@ -282,7 +265,7 @@ section, footer {
     
     .top-nav {
         padding: 15px 20px;
-        justify-content: center; /* 手机端导航居中折行显示 */
+        justify-content: center; 
         gap: 15px;
     }
 
