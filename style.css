@@ -74,7 +74,7 @@ a:hover {
 .section-title {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 25px; /* 增加了标题下方的间距 */
+    margin-bottom: 30px; 
     text-transform: uppercase;
     color: #111;
 }
@@ -82,7 +82,7 @@ a:hover {
 .sub-title {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .text-justify { text-align: justify; }
@@ -122,118 +122,44 @@ a:hover {
 .theme-bg .divider {
     color: rgba(255, 255, 255, 0.5); 
 }
-.theme-bg .resume-desc::before, 
-.theme-bg .bullet-item::before,
-.theme-bg .project-role::before {
-    color: white;
-}
-
-/* --- 教育/经历列表 --- */
-.resume-item {
-    margin-bottom: 30px; /* 加大了区块间距 */
-}
-
-.resume-header {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.date-text {
-    color: #666;
-    font-weight: normal;
-}
-.theme-bg .date-text {
-    color: rgba(255,255,255,0.85);
-}
-
-.resume-desc {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 5px;
-    text-align: justify;
-}
-
-.resume-desc::before {
-    content: "•";
-    position: absolute;
-    left: 5px;
-    color: var(--primary-color);
-}
-
-.no-bullet { padding-left: 0; }
-.no-bullet::before { display: none; }
-
-/* --- 论文、演讲等普通列表的间距 --- */
-.bullet-item {
-    position: relative;
-    padding-left: 20px;
-    margin-bottom: 15px; /* 加大了列表间距 */
-    text-align: justify;
-}
-.bullet-item::before {
-    content: "•";
-    position: absolute;
-    left: 5px;
-    color: var(--primary-color);
-}
-
-.bullet-list {
-    list-style-type: disc;
-    padding-left: 20px;
-}
-.bullet-list li {
-    margin-bottom: 12px;
-    text-align: justify;
+.theme-bg .block-date {
+    color: rgba(255,255,255,0.85); /* 绿底时时间颜色变浅白 */
 }
 
 /* ========================================= */
-/* 最新版：RESEARCH EXPERIENCE (纯粹的三行流式排版) */
+/* 终极统一结构：Block 流式布局 (完全规避排版错乱) */
 /* ========================================= */
-.project-item {
+.block-item {
     display: block;
-    margin-bottom: 35px; /* 小块之间留出充足空隙 */
+    margin-bottom: 35px; /* 所有内容小块之间留出充足阅读间隙 */
 }
 
-.project-date {
+.block-date {
     font-size: 15px;
-    color: rgba(255, 255, 255, 0.85); /* 因为在绿底上，使用半透明白 */
+    color: #666; /* 默认灰度时间文字 */
     margin-bottom: 5px;
 }
 
-.project-title {
+.block-title {
     font-weight: bold;
     margin-bottom: 5px;
     text-align: justify;
 }
 
-.project-role {
+.block-text {
     text-align: justify;
+    margin-bottom: 5px;
 }
 
-/* ========================================= */
-/* 最新版：JOURNAL ARTICLES (上下流式排版，链接在下) */
-/* ========================================= */
-.pub-item {
-    display: block;
-    margin-bottom: 35px; /* 论文之间留出充足空隙 */
-}
-
-.pub-text {
-    text-align: justify;
-    margin-bottom: 10px; /* 与下方的链接区域留出一点间隙 */
-}
-
-.pub-links-bottom {
+.block-links {
+    margin-top: 8px; /* 论文链接和上方文字的距离 */
     display: flex;
-    gap: 20px; /* 两个链接之间的水平距离 */
-    justify-content: flex-start; /* 强制左对齐 */
+    align-items: center;
+    gap: 10px; /* 链接和分隔符 || 的距离 */
+    flex-wrap: wrap;
 }
-
-.pub-links-bottom a {
+.block-links a {
     font-weight: bold;
-    font-size: 15px;
 }
 
 /* --- CV 下载区 --- */
@@ -319,9 +245,6 @@ a:hover {
         flex-direction: column; 
         gap: 15px; 
     }
-
-    .resume-header { flex-direction: column; }
-    .date-text { font-size: 14px; margin-top: 5px; }
 
     .sidebar-title {
         flex: none;
