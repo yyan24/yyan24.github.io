@@ -1,8 +1,9 @@
 /* 全局变量 */
 :root {
-    --primary-color: rgb(84, 130, 53);
+    --primary-color: rgb(84, 130, 53); /* 你的主题绿 */
     --text-color: #333;
     --bg-color: #fff;
+    --meta-color: #777; /* 学术附加信息的灰色 */
 }
 
 /* 基础样式重置 */
@@ -10,6 +11,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+/* 实现平滑滚动 */
+html {
+    scroll-behavior: smooth; 
 }
 
 body {
@@ -30,10 +36,10 @@ a:hover {
 
 /* 主容器 */
 .maincontent {
-    max-width: 1000px;
+    max-width: 900px; /* 移除了左边栏后，宽度收窄一点更利于文字阅读 */
     margin: 0 auto;
     background-color: var(--bg-color);
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
 }
 
 /* --- 头部 Hero 区域 --- */
@@ -42,76 +48,99 @@ a:hover {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: rgba(0, 0, 0, 0.4); 
+    background-color: rgba(0, 0, 0, 0.5); 
     background-blend-mode: overlay;
 
-    min-height: 400px;
-    height: 50vh; 
+    min-height: 350px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 40px;
+    padding: 50px 40px;
 }
 
 .titlecontainer h1 {
     color: white;
     font-size: clamp(40px, 6vw, 60px); 
     line-height: 1.2;
+    margin-bottom: 5px;
 }
 
 .titlecontainer h3 {
     color: white;
     font-size: clamp(16px, 3vw, 20px);
     font-weight: normal;
-    margin-top: 10px;
+}
+
+.titlecontainer .keywords {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* --- 顶部导航栏 (吸顶) --- */
+.top-nav {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 15px 40px;
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.top-nav a {
+    color: #444;
+    font-weight: bold;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.top-nav a:hover {
+    color: var(--primary-color);
 }
 
 /* --- 通用区块布局 --- */
 .section {
-    padding: 40px;
+    padding: 50px 40px; /* 加大内边距，让排版深呼吸 */
 }
 
+/* 核心：带下划线的学术级标题 */
 .section-title {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 30px; 
     text-transform: uppercase;
     color: #111;
+    border-bottom: 3px solid var(--primary-color);
+    display: inline-block; /* 下划线自适应文字宽度 */
+    padding-bottom: 5px;
 }
 
 .sub-title {
-    font-size: 16px;
+    font-size: 17px;
     font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    color: var(--primary-color);
 }
 
 .text-justify { text-align: justify; }
-
-.flex-row {
-    display: flex;
-    gap: 20px;
-}
-
-/* 核心修改点：缩小左侧标题占位宽度，释放更多右侧空间 */
-.sidebar-title {
-    flex: 0 0 130px; /* 原来是 200px，缩短了 70px 留给右侧内容 */
-    font-weight: bold;
-    font-size: 18px;
-}
-
-.content-col {
-    flex: 1;
-}
 
 /* --- 主题色切换 (绿底白字) --- */
 .theme-bg {
     background-color: var(--primary-color);
     color: white;
 }
-.theme-bg .section-title,
-.theme-bg .sub-title,
-.theme-bg .sidebar-title {
+.theme-bg .section-title {
     color: white; 
+    border-bottom-color: white;
+}
+.theme-bg .sub-title {
+    color: white;
 }
 .theme-bg a {
     color: white; 
@@ -126,25 +155,30 @@ a:hover {
 .theme-bg .block-date {
     color: rgba(255,255,255,0.85);
 }
+.theme-bg .pub-meta {
+    color: rgba(255, 255, 255, 0.7); /* 绿底时的浅白附加信息 */
+}
 
 /* ========================================= */
-/* 统一结构：Block 流式布局 (纯净清爽版) */
+/* 纯粹的上下流式结构 (Block Layout) */
 /* ========================================= */
 .block-item {
     display: block;
-    margin-bottom: 35px; /* 所有内容小块之间留出充足阅读间隙 */
+    margin-bottom: 35px; /* 段落间隙 */
 }
 
 .block-date {
     font-size: 15px;
-    color: #666; /* 默认灰度时间文字 */
+    color: var(--meta-color); 
     margin-bottom: 5px;
+    font-weight: bold; /* 时间加粗增加层次 */
 }
 
 .block-title {
     font-weight: bold;
     margin-bottom: 5px;
     text-align: justify;
+    font-size: 16px;
 }
 
 .block-text {
@@ -152,11 +186,18 @@ a:hover {
     margin-bottom: 5px;
 }
 
+/* 论文附加信息 (影响因子等) */
+.pub-meta {
+    font-style: italic;
+    color: var(--meta-color);
+    font-size: 0.95em;
+}
+
 .block-links {
-    margin-top: 8px; /* 链接和上方文字的距离 */
+    margin-top: 8px; 
     display: flex;
     align-items: center;
-    gap: 10px; /* 链接和分隔符 || 的距离 */
+    gap: 10px; 
     flex-wrap: wrap;
 }
 .block-links a {
@@ -169,115 +210,63 @@ a:hover {
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-left: 4px solid var(--primary-color);
 }
 .divider { color: #ccc; }
 .download-icon { width: 20px; vertical-align: middle; }
 
-/* --- 底部区域 --- */
+/* --- 底部：完全垂直结构 --- */
 .contact-section {
     background-color: var(--primary-color);
     color: white;
-    padding: 40px;
-    display: flex;
-    gap: 20px;
+    padding: 50px 40px;
 }
-
-.contact-section .sidebar-title { color: white; }
+.contact-section .section-title { 
+    color: white; 
+    border-bottom-color: white; 
+}
 
 .links-section {
     background-color: white;
-    padding: 40px;
-    display: flex;
-    gap: 20px;
+    padding: 50px 40px;
 }
 
-.links-section .sidebar-title { color: var(--primary-color); }
-
-.contact-col { flex: 1; line-height: 1.8; }
-.links-section .contact-col a { color: var(--primary-color); }
+.vertical-contact-item {
+    margin-bottom: 25px; /* 上下块间距 */
+    line-height: 1.8;
+}
+.vertical-contact-item b {
+    display: inline-block;
+    margin-bottom: 5px;
+}
 
 .footer-bottom {
     padding: 20px 40px;
     color: var(--primary-color);
     background-color: white;
     border-top: 4px solid var(--primary-color);
-    font-size: 15px;
+    font-size: 14px;
+    text-align: center;
 }
-
-/* --- 导航栏 --- */
-.side-bar {
-    position: fixed;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    z-index: 100;
-}
-
-.side-bar a {
-    display: block;
-    width: 45px;
-    height: 45px;
-    background: rgba(255,255,255,0.9);
-    border-radius: 50%;
-    padding: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: transform 0.2s;
-}
-
-.side-bar a:hover { transform: scale(1.1); }
-.side-bar img { width: 100%; height: 100%; object-fit: contain; }
 
 /* ========================================= */
 /* 移动端自适应 (Media Queries) */
 /* ========================================= */
 @media (max-width: 768px) {
-    .section, .contact-section, .links-section { padding: 20px; }
-    
     .hero-section {
-        padding: 30px 20px;
-        align-items: center; 
+        padding: 40px 20px;
         text-align: center;
     }
-
-    .flex-row, .contact-section, .links-section { 
-        flex-direction: column; 
-        gap: 15px; 
-    }
-
-    .sidebar-title {
-        flex: none;
-        border-bottom: 2px solid rgba(0,0,0,0.1);
-        padding-bottom: 10px;
-    }
-    .theme-bg .sidebar-title { border-bottom-color: rgba(255,255,255,0.3); }
-    .contact-section .sidebar-title { border-bottom-color: rgba(255,255,255,0.3); }
-
-    /* 侧边栏在手机上变为底部悬浮导航 */
-    .side-bar {
-        top: auto;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        transform: none;
-        flex-direction: row;
-        justify-content: space-around;
-        background: rgba(255,255,255,0.95);
-        padding: 10px;
-        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-    }
-
-    .side-bar a {
-        width: 35px;
-        height: 35px;
-        padding: 5px;
-        box-shadow: none;
-        background: transparent;
-    }
     
-    body {
-        padding-bottom: 60px;
+    .top-nav {
+        padding: 15px 20px;
+        justify-content: center; /* 手机端导航居中 */
+        gap: 15px;
+    }
+
+    .section, .contact-section, .links-section { 
+        padding: 40px 20px; 
     }
 }
