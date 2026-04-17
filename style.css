@@ -1,4 +1,4 @@
-/* 全局变量：保留设定的主题色 */
+/* 全局变量 */
 :root {
     --primary-color: rgb(84, 130, 53);
     --text-color: #333;
@@ -16,7 +16,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
-    background-color: #e9ecef; /* 外围浅灰背景 */
+    background-color: #e9ecef;
 }
 
 a {
@@ -36,14 +36,12 @@ a:hover {
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 
-/* --- 头部 Hero 区域 (带有背景图的智能遮罩) --- */
+/* --- 头部 Hero 区域 --- */
 .hero-section {
     background-image: url('yytr_cl.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
-    /* 智能遮罩：加一层半透明的黑底，确保白色文字清晰 */
     background-color: rgba(0, 0, 0, 0.4); 
     background-blend-mode: overlay;
 
@@ -76,7 +74,7 @@ a:hover {
 .section-title {
     font-size: 18px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 25px; /* 增加了标题下方的间距 */
     text-transform: uppercase;
     color: #111;
 }
@@ -84,7 +82,7 @@ a:hover {
 .sub-title {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .text-justify { text-align: justify; }
@@ -121,21 +119,18 @@ a:hover {
 .theme-bg a:hover {
     text-decoration: underline;
 }
-.theme-bg .date-text {
-    color: rgba(255, 255, 255, 0.8); 
-}
 .theme-bg .divider {
     color: rgba(255, 255, 255, 0.5); 
 }
-/* 将绿底区块内原本的小绿点强制改成白色 */
 .theme-bg .resume-desc::before, 
-.theme-bg .bullet-item::before {
+.theme-bg .bullet-item::before,
+.theme-bg .project-role::before {
     color: white;
 }
 
-/* --- 经历/教育常规列表 --- */
+/* --- 教育/经历列表 --- */
 .resume-item {
-    margin-bottom: 25px;
+    margin-bottom: 30px; /* 加大了区块间距 */
 }
 
 .resume-header {
@@ -148,6 +143,9 @@ a:hover {
 .date-text {
     color: #666;
     font-weight: normal;
+}
+.theme-bg .date-text {
+    color: rgba(255,255,255,0.85);
 }
 
 .resume-desc {
@@ -167,10 +165,11 @@ a:hover {
 .no-bullet { padding-left: 0; }
 .no-bullet::before { display: none; }
 
+/* --- 论文、演讲等普通列表的间距 --- */
 .bullet-item {
     position: relative;
     padding-left: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* 加大了列表间距 */
     text-align: justify;
 }
 .bullet-item::before {
@@ -185,61 +184,56 @@ a:hover {
     padding-left: 20px;
 }
 .bullet-list li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     text-align: justify;
 }
 
-/* --- 论文排版：彻底修复 Edge 问题 (使用 CSS Grid) --- */
-.pub-item {
-    /* 使用 Grid 可以强行划分 1fr 和 固定宽度，拒绝任何文字挤压 */
-    display: grid;
-    grid-template-columns: 1fr 120px;
-    gap: 30px; 
-    align-items: start;
-    margin-bottom: 25px;
-}
-
-.pub-text {
-    text-align: justify;
-}
-
-.pub-links {
-    text-align: right;
-}
-
-.pub-links a {
+/* ========================================= */
+/* 最新版：RESEARCH EXPERIENCE (纯粹的三行流式排版) */
+/* ========================================= */
+.project-item {
     display: block;
+    margin-bottom: 35px; /* 小块之间留出充足空隙 */
+}
+
+.project-date {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.85); /* 因为在绿底上，使用半透明白 */
     margin-bottom: 5px;
 }
 
-/* --- 研究经历：双列类表格排版 (使用 CSS Grid) --- */
-.research-item {
-    display: grid;
-    /* 左侧自适应，右侧留出 100px 固定给时间段 */
-    grid-template-columns: 1fr 100px;
-    gap: 20px;
-    align-items: start;
-    margin-bottom: 25px;
-}
-
-.research-main {
-    text-align: left;
-}
-
-.research-title {
+.project-title {
     font-weight: bold;
     margin-bottom: 5px;
     text-align: justify;
 }
 
-.research-role {
+.project-role {
     text-align: justify;
 }
 
-.research-date {
-    text-align: right; /* 时间段强制右上对齐 */
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.4;
+/* ========================================= */
+/* 最新版：JOURNAL ARTICLES (上下流式排版，链接在下) */
+/* ========================================= */
+.pub-item {
+    display: block;
+    margin-bottom: 35px; /* 论文之间留出充足空隙 */
+}
+
+.pub-text {
+    text-align: justify;
+    margin-bottom: 10px; /* 与下方的链接区域留出一点间隙 */
+}
+
+.pub-links-bottom {
+    display: flex;
+    gap: 20px; /* 两个链接之间的水平距离 */
+    justify-content: flex-start; /* 强制左对齐 */
+}
+
+.pub-links-bottom a {
+    font-weight: bold;
+    font-size: 15px;
 }
 
 /* --- CV 下载区 --- */
@@ -336,23 +330,6 @@ a:hover {
     }
     .theme-bg .sidebar-title { border-bottom-color: rgba(255,255,255,0.3); }
     .contact-section .sidebar-title { border-bottom-color: rgba(255,255,255,0.3); }
-
-    /* 移动端处理双列排版：上下堆叠 */
-    .pub-item, .research-item {
-        grid-template-columns: 1fr; /* 手机端变为单列 */
-        gap: 10px;
-    }
-    
-    .pub-links {
-        text-align: left;
-        display: flex;
-        gap: 20px;
-    }
-    
-    .research-date {
-        text-align: left; /* 手机端时间放左边，紧跟在内容下方 */
-        opacity: 0.8;
-    }
 
     /* 侧边栏在手机上变为底部悬浮导航 */
     .side-bar {
