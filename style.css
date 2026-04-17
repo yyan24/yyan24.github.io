@@ -37,7 +37,7 @@ a:hover {
 
 /* 解决吸顶导航条挡住标题的问题 */
 section, footer {
-    scroll-margin-top: 80px; /* 增加了一点偏移量，让标题上方留一点呼吸空间 */
+    scroll-margin-top: 80px; 
 }
 
 /* 主容器 */
@@ -61,8 +61,6 @@ section, footer {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    
-    /* 关键：绝对一致的 padding，让字体的左侧和下方等距 */
     padding: 40px; 
 }
 
@@ -83,33 +81,34 @@ section, footer {
     color: rgba(255, 255, 255, 0.85);
     font-size: 15px;
     font-weight: normal;
-    margin-top: 10px; /* 调紧凑，确保下方边距和左边视觉上相等 */
+    margin-top: 10px; 
     letter-spacing: 0.5px;
 }
 
-/* --- 顶部导航栏 (吸顶) --- */
+/* --- 顶部导航栏 (绿底白字吸顶) --- */
 .top-nav {
     position: sticky;
     top: 0;
-    background: #fff;
-    border-bottom: 1px solid #eee;
+    background: var(--primary-color);
     padding: 15px 40px;
     display: flex;
     gap: 25px;
     flex-wrap: wrap;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
 }
 
 .top-nav a {
-    color: #444; /* 导航默认深灰 */
+    color: white;
     font-weight: bold;
     font-size: 15px;
     text-transform: uppercase;
+    transition: color 0.2s;
 }
 
 .top-nav a:hover {
-    color: var(--primary-color);
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: underline;
 }
 
 /* --- 通用区块布局 --- */
@@ -259,7 +258,7 @@ section, footer {
 /* ========================================= */
 @media (max-width: 768px) {
     .hero-section {
-        padding: 30px; /* 移动端左和下的边距绝对一致 */
+        padding: 30px; 
         text-align: left;
     }
     
